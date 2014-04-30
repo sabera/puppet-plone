@@ -1,0 +1,19 @@
+{
+  "author": "",
+  "checksums": {
+  },
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.1.0"
+    },
+  ],
+  "description": "",
+  "license": "",
+  "name": "puppet-plone",
+  "project_page": "",
+  "source": "",
+  "summary": "",
+  "types": [],
+  "version": "0.1.0"
+}
