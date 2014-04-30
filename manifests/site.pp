@@ -22,6 +22,7 @@
 #
 define plone::site(
   $user         = 'plone',
+  $group        = 'plone',
   $config       = 'buildout.cfg',
   $python       = '/usr/bin/python',
   $refreshonly  = true,
@@ -41,6 +42,7 @@ define plone::site(
     tries       => 2,
     try_sleep   => 10,
     user        => $user,
+    group       => $group,
     subscribe   => Exec["${python} ${name}/bootstrap.py"],
     require     => Exec["${python} ${name}/bootstrap.py"],
   }
