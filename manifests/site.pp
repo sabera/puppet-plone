@@ -35,7 +35,7 @@ define plone::site(
     creates => "$name}/bin/buildout",
   }
 
-  exec { "${name}/bin/buidlout -c ${config}":
+  exec { "${name}/bin/buildout -c ${config}":
     cwd         => "${name}",
     refreshonly => $refreshonly,
     tries       => 2,
