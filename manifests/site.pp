@@ -33,7 +33,7 @@ define plone::site(
 
   exec { "${python} ${name}/bootstrap.py":
     cwd     => "${name}",
-    creates => "$name}/bin/buildout",
+    creates => "${name}/bin/buildout",
   }
 
   exec { "${name}/bin/buildout -c ${config}":
