@@ -34,6 +34,8 @@ define plone::site(
   exec { "${python} ${name}/bootstrap.py":
     cwd     => "${name}",
     creates => "${name}/bin/buildout",
+    user    => $user,
+    group   => $group,
   }
 
   exec { "${name}/bin/buildout -c ${config}":
