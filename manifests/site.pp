@@ -47,5 +47,6 @@ define plone::site(
     group       => $group,
     subscribe   => Exec["${python} ${name}/bootstrap.py"],
     require     => Exec["${python} ${name}/bootstrap.py"],
+    timeout     => 0,
   }
 }
