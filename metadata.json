@@ -1,19 +1,17 @@
 {
-  "author": "",
-  "checksums": {
-  },
+  "name": "puppet-plone",
+  "version": "0.1.0",
+  "author": "CEH",
+  "summary": "Install Plone instance via buildout",
+  "license": "GPL v3.0",
+  "source": "https://github.com/NERC-CEH/puppet-plone",
+  "project_page": "https://github.com/NERC-CEH/puppet-plone",
+  "issues_url": "https://github.com/NERC-CEH/puppet-plone/issues",
   "dependencies": [
     {
-      "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 4.1.0"
-    },
-  ],
-  "description": "",
-  "license": "",
-  "name": "puppet-plone",
-  "project_page": "",
-  "source": "",
-  "summary": "",
-  "types": [],
-  "version": "0.1.0"
+      "version_range": ">= 1.0.0",
+      "name": "puppetlabs-stdlib"
+    }
+  ]
 }
+

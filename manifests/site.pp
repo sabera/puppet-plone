@@ -2,7 +2,7 @@
 #
 # This module manages plone sites using buildout.
 #
-# Parameters: 
+# Parameters:
 #   name: path to source of buildout
 #   group: group to run and own buildout
 #   config: which config file to use, defaults to buildout.cfg
@@ -32,14 +32,14 @@ define plone::site(
   }
 
   exec { "${python} ${name}/bootstrap.py":
-    cwd     => "${name}",
+    cwd     => $name,
     creates => "${name}/bin/buildout",
     user    => $user,
     group   => $group,
   }
 
   exec { "${name}/bin/buildout -c ${config}":
-    cwd         => "${name}",
+    cwd         => $name,
     refreshonly => $refreshonly,
     tries       => 2,
     try_sleep   => 10,

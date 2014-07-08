@@ -1,9 +1,18 @@
-# Plone
+# Plone Module
 
-## Overview
+This is the [Plone](https://plone.org/) puppet module, it installs system wide package dependencies required to run [Plone](https://plone.org/).  It can also be used to create an instance of a site using buildout.
 
-This is the plone puppet module, it allows you to create instances of Plone applications
+## Usage
 
-## Module Description
+Just install dependencies,
+```puppet
+  class {'plone':
+    enable_ldap => true,
+  }
+```
 
-With this module you can create instances of plone on debian. These instances can either be standalone or fronted by apache.
+Create an instance of a site using buildout, the folder should have a valid [buildout structure](http://www.buildout.org/en/latest/docs/dirstruct.html) including `bootstrap.py`
+```puppet
+  plone::site {'/home/plone/site':}
+```
+This will default to running the `bootstrap.py` file prior to `buildout` using `buildout.cfg`
