@@ -9,8 +9,8 @@
   "issues_url": "https://github.com/NERC-CEH/puppet-plone/issues",
   "dependencies": [
     {
-      "version_range": ">= 1.0.0",
-      "name": "puppetlabs-stdlib"
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=3.2.0 <5.0.0"
     }
   ]
 }
