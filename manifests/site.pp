@@ -58,7 +58,7 @@ define plone::site(
       owner     => 'plone',
       group     => 'plone',
       mode      => 0755,
-      content   => 'backuptemplate.erb'
+      content   => template('plone/backuptemplate.erb')
     }
   }
 }
