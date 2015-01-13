@@ -57,8 +57,8 @@ define plone::site(
   if $backup {
     file {"${name}/${backupname}.sh":
       ensure    => file,
-      owner     => 'plone',
-      group     => 'plone',
+      owner     => $user,
+      group     => $group,
       mode      => 0755,
       content   => template('plone/backuptemplate.erb')
     }
