@@ -27,6 +27,8 @@ define plone::site(
   $python       = '/usr/bin/python',
   $backup       = false,
   $backupname   = undef,
+  $backupcopy   = false,
+  $backupcopylocation = undef,
   $refreshonly  = true,
 ) {
   if ! defined(Class['plone']) {
@@ -51,7 +53,7 @@ define plone::site(
     require     => Exec["${python} ${name}/bootstrap.py"],
     timeout     => 0,
   }
-  
+
   if $backup {
     file {"${name}/${backupname}.sh":
       ensure    => file,

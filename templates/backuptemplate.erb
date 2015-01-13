@@ -1,11 +1,14 @@
 #!/bin/bash
 
-BACKUPFILELOCATION=/usr/local/plone/<%= @backupname %>
+BACKUPFILELOCATION=<% =@name %>
 
 #Empty existing blob storage backups to prevent them exhausting inodes!
 rm -Rf $BACKUPFILELOCATION/var/blobstoragesnapshots/*
 
 $BACKUPFILELOCATION/bin/snapshotbackup -q
 
-tar czf /tmp/<%= @backupname %>.tgz $BACKUPFILELOCATION/var/snapshotbackups $BACKUPFILELOCATION/var/blobstoragesnapshots/blobstorage.0 && \
-cp /tmp/<%= @backupname %>.tgz /mnt/appdev/data 
+tar czf /tmp/<%= @backupname %>.tgz $BACKUPFILELOCATION/var/snapshotbackups $BACKUPFILELOCATION/var/blobstoragesnapshots/blobstorage.0
+
+<% if @backupcopy %>
+  cp /tmp/<%= @backupname %>.tgz <% =@backupcopylocation %>
+<% end %>
