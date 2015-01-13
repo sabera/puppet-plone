@@ -25,6 +25,10 @@ define plone::site(
   $group        = 'plone',
   $config       = 'buildout.cfg',
   $python       = '/usr/bin/python',
+  $backup       = false,
+  $backupname   = undef,
+  $backupcopy   = false,
+  $backupcopylocation = undef,
   $refreshonly  = true,
 ) {
   if ! defined(Class['plone']) {
@@ -48,5 +52,15 @@ define plone::site(
     subscribe   => Exec["${python} ${name}/bootstrap.py"],
     require     => Exec["${python} ${name}/bootstrap.py"],
     timeout     => 0,
+  }
+
+  if $backup {
+    file {"${name}/${backupname}.sh":
+      ensure    => file,
+      owner     => 'plone',
+      group     => 'plone',
+      mode      => 0755,
+      content   => template('plone/backuptemplate.erb')
+    }
   }
 }
