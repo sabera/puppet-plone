@@ -55,12 +55,23 @@ define plone::site(
   }
 
   if $backup {
-    file {"${name}/${backupname}.sh":
+    file {"${name}/backup-${backupname}.sh":
       ensure    => file,
       owner     => $user,
       group     => $group,
       mode      => 0755,
       content   => template('plone/backuptemplate.erb')
     }
+  }
+  
+
+ if $backupcopy {
+   file {"${name}/copy-${backupname}.sh":
+     ensure    => file,
+     owner     => $user,
+     group     => $group,
+     mode      => 0755,
+     content   => template('plone/copyDist.erb')
+   }
   }
 }
